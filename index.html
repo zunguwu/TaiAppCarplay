@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TrollStore App Store</title>
+    <title>TrollStore & Jailbreak Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --primary-color: #007AFF;
-            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --bg-gradient: linear-gradient(135deg, #1e1e2f 0%, #4a00e0 100%);
         }
 
         body {
@@ -25,24 +25,72 @@
         .header {
             text-align: center;
             color: white;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
-        /* Lưới 6 cột */
+        /* Phần Jailbreak Apps */
+        .jb-section {
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+
+        .jb-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .jb-btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 18px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .jb-btn:hover {
+            background: white;
+            color: #4a00e0;
+            transform: translateY(-3px);
+        }
+
+        /* Lưới 6 cột cho TrollStore */
         .app-grid {
             display: grid;
-            grid-template-columns: repeat(6, 1fr); /* 6 ô trên 1 hàng */
+            grid-template-columns: repeat(6, 1fr);
             gap: 20px;
             width: 100%;
             max-width: 1200px;
         }
 
-        /* Responsive cho máy tính bảng (3 ô) và điện thoại (2 ô) */
         @media (max-width: 1024px) {
             .app-grid { grid-template-columns: repeat(3, 1fr); }
+            .jb-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 600px) {
             .app-grid { grid-template-columns: repeat(2, 1fr); }
+            .jb-grid { grid-template-columns: 1fr; }
         }
 
         .app-card {
@@ -58,9 +106,7 @@
             justify-content: space-between;
         }
 
-        .app-card:hover {
-            transform: translateY(-5px);
-        }
+        .app-card:hover { transform: translateY(-5px); }
 
         .app-icon {
             width: 60px;
@@ -77,7 +123,7 @@
 
         .app-name {
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.9rem;
             margin-bottom: 15px;
             color: #1d1d1f;
         }
@@ -88,79 +134,92 @@
             text-decoration: none;
             padding: 10px;
             border-radius: 10px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 500;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 5px;
         }
-
-        .btn-install:active {
-            opacity: 0.8;
-        }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <h1>My TrollStore Library</h1>
-        <p>Chọn ứng dụng bạn muốn cài đặt</p>
+        <h1>zunguwu's Store</h1>
+        <p>Kho ứng dụng tổng hợp cho iOS</p>
     </div>
 
-    <div class="app-grid">
-        <div class="app-card">
-            <div class="app-icon"><i class="fa-solid fa-microphone"></i></div>
-            <div class="app-name">AudioRecorder_6.0.3</div>
-            <a href="apple-magnifier://install?url=https://github.com/zunguwu/TaiAppCarplay/releases/download/Download/AudioRecorder_6.0.3.ipa" class="btn-install">
-                <i class="fa-solid fa-download"></i> Nhấn để cài
+    <div class="jb-section">
+        <div class="section-title">
+            <i class="fa-solid fa-skull-crossbones"></i> Jailbreak Repos
+        </div>
+        <div class="jb-grid">
+            <a href="sileo://source/https://zunguwu.github.io/" class="jb-btn" style="border-left: 5px solid #2ae7ff;">
+                <i class="fa-solid fa-bolt"></i> Add to Sileo
+            </a>
+            <a href="zbra://sources/add/https://zunguwu.github.io/" class="jb-btn" style="border-left: 5px solid #f472b6;">
+                <i class="fa-solid fa-horse"></i> Add to Zebra
+            </a>
+            <a href="cydia://url/https://cydia.saurik.com/api/share#?source=https://zunguwu.github.io/" class="jb-btn" style="border-left: 5px solid #fb923c;">
+                <i class="fa-solid fa-box"></i> Add to Cydia
             </a>
         </div>
-
-        <div class="app-card">
-            <div class="app-icon" style="background: #FF2D55;"><i class="fa-solid fa-tv"></i></div>
-            <div class="app-name">BiliBili_NOAds</div>
-            <a href="apple-magnifier://install?url=https://github.com/zunguwu/TaiAppCarplay/releases/download/Download/BiliBili_NOAds_8.82.0.ipa" class="btn-install">
-                <i class="fa-solid fa-download"></i> Nhấn để cài
-            </a>
-        </div>
-
-        <div class="app-card">
-            <div class="app-icon" style="background: #5856D6;"><i class="fa-solid fa-film"></i></div>
-            <div class="app-name">Phim 4k</div>
-            <a href="apple-magnifier://install?url=https://github.com/zunguwu/TaiAppCarplay/releases/download/Download/Phim4K-v1.9.7.ipa" class="btn-install">
-                <i class="fa-solid fa-download"></i> Nhấn để cài
-            </a>
-        </div>
-
-<div class="app-card">
-    <div class="app-icon" style="background: #1DB954; color: white;">
-        <i class="fa-brands fa-spotify"></i> </div>
-    <div class="app-name">Spotify </div>
-    <a href="apple-magnifier://install?url=https://github.com/zunguwu/TaiAppCarplay/releases/download/Download/Spotify_9.0.46.ipa" class="btn-install">
-        <i class="fa-solid fa-download"></i> Nhấn để cài
-    </a>
-</div>
-
-        <div class="app-card">
-    <div class="app-icon" style="background: #010101; color: white;">
-        <i class="fa-brands fa-tiktok"></i>
     </div>
-    <div class="app-name">TikTok No Ad </div>
-    <a href="apple-magnifier://install?url=https://github.com/zunguwu/TaiAppCarplay/releases/download/Download/TikTok_43.8.0_.ipa" class="btn-install">
-        <i class="fa-solid fa-download"></i> Nhấn để cài
-    </a>
-         </div>
 
-        <div class="app-card">
-    <div class="app-icon" style="background: #FF0000; color: white;">
-        <i class="fa-brands fa-youtube"></i>
-    </div>
-    <div class="app-name">YouTube Mod</div>
-    <a href="apple-magnifier://install?url=https://github.com/zunguwu/TaiAppCarplay/releases/download/Download/YouTubePlus.ipa" class="btn-install">
-        <i class="fa-solid fa-download"></i> Nhấn để cài
-    </a>
-</div>
+    <div class="jb-section">
+        <div class="section-title">
+            <i class="fa-solid fa-rocket"></i> TrollStore Apps
+        </div>
+        <div class="app-grid">
+            <div class="app-card">
+                <div class="app-icon"><i class="fa-solid fa-microphone"></i></div>
+                <div class="app-name">AudioRecorder</div>
+                <a href="apple-magnifier://install?url=https://github.com/zunguwu/TaiAppCarplay/releases/download/Download/AudioRecorder_6.0.3.ipa" class="btn-install">
+                    <i class="fa-solid fa-download"></i> Cài đặt
+                </a>
+            </div>
+
+            <div class="app-card">
+                <div class="app-icon" style="background: #fb7299;"><i class="fa-solid fa-tv"></i></div>
+                <div class="app-name">BiliBili Mod</div>
+                <a href="apple-magnifier://install?url=https://github.com/zunguwu/TaiAppCarplay/releases/download/Download/BiliBili_NOAds_8.82.0.ipa" class="btn-install">
+                    <i class="fa-solid fa-download"></i> Cài đặt
+                </a>
+            </div>
+
+            <div class="app-card">
+                <div class="app-icon" style="background: #1a1a1a;"><i class="fa-solid fa-film"></i></div>
+                <div class="app-name">Phim 4k</div>
+                <a href="apple-magnifier://install?url=https://github.com/zunguwu/TaiAppCarplay/releases/download/Download/Phim4K-v1.9.7.ipa" class="btn-install">
+                    <i class="fa-solid fa-download"></i> Cài đặt
+                </a>
+            </div>
+
+            <div class="app-card">
+                <div class="app-icon" style="background: #1DB954;"><i class="fa-brands fa-spotify"></i></div>
+                <div class="app-name">Spotify</div>
+                <a href="apple-magnifier://install?url=https://github.com/zunguwu/TaiAppCarplay/releases/download/Download/Spotify_9.0.46.ipa" class="btn-install">
+                    <i class="fa-solid fa-download"></i> Cài đặt
+                </a>
+            </div>
+
+            <div class="app-card">
+                <div class="app-icon" style="background: #010101;"><i class="fa-brands fa-tiktok"></i></div>
+                <div class="app-name">TikTok No Ad</div>
+                <a href="apple-magnifier://install?url=https://github.com/zunguwu/TaiAppCarplay/releases/download/Download/TikTok_43.8.0_.ipa" class="btn-install">
+                    <i class="fa-solid fa-download"></i> Cài đặt
+                </a>
+            </div>
+
+            <div class="app-card">
+                <div class="app-icon" style="background: #FF0000;"><i class="fa-brands fa-youtube"></i></div>
+                <div class="app-name">YouTube Plus</div>
+                <a href="apple-magnifier://install?url=https://github.com/zunguwu/TaiAppCarplay/releases/download/Download/YouTubePlus.ipa" class="btn-install">
+                    <i class="fa-solid fa-download"></i> Cài đặt
+                </a>
+            </div>
+        </div>
     </div>
 
 </body>
