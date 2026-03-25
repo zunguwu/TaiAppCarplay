@@ -53,3 +53,10 @@
 .header p {
     font-size: clamp(10px, 2.5vw, 16px);
 }
+
+.app-sub {
+    font-size: 12px;
+    color: #666;
+    margin-top: -8px;
+    margin-bottom: 12px;
+}
