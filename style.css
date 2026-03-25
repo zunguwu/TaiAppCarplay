@@ -22,17 +22,7 @@
     text-align: center;
 }
 
-.footer {
-    width: 100%;
-    margin-top: 40px;
-    text-align: center;
-    color: rgba(255,255,255,0.6);
-    font-size: 14px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
+/* PC giữ nguyên */
 .top-box {
     display: flex;
     align-items: center;
@@ -50,16 +40,34 @@
     padding: 8px;
 }
 
+/* HEADER */
 .header {
     text-align: center;
-    flex: 1; 
+    flex: 1;
 }
-.top-box {
-    flex-wrap: nowrap;
-}
+
+/* 📱 MOBILE */
 @media (max-width: 600px) {
+
+    /* ❗ vẫn giữ ngang */
     .top-box {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    /* QR nhỏ lại */
+    .qr-box img {
+        width: 70px;
+        height: 70px;
+        padding: 5px;
+    }
+
+    /* chữ nhỏ lại cho vừa */
+    .header h1 {
+        font-size: 1.2rem;
+    }
+
+    .header p {
+        font-size: 0.8rem;
     }
 }
